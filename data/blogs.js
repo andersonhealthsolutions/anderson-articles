@@ -1,12 +1,12 @@
 window.blogPosts = [
   {
-    id: "anderson-trace-mineral-complex-vs-competitors",
-    title: "Anderson Trace Mineral Complex vs Competitors",
-    topic: "Trace Minerals",
+    id: "selenium-complete-guide-to-benefits-uses",
+    title: "Selenium: Complete Guide to Benefits & Uses",
+    topic: "Selenium",
     owner: "",
     date: "2026-05-28",
     status: "Scheduled",
-    description: "Comparison article covering Anderson Trace Mineral Complex against competitor products.",
+    description: "Complete guide article introducing selenium benefits, common uses, and key considerations.",
     files: [
       {
         name: "Content Brief Template",
@@ -33,16 +33,6 @@ window.blogPosts = [
     date: "2026-06-25",
     status: "Scheduled",
     description: "Article covering how different mineral types can affect absorption and bioavailability.",
-    files: [],
-  },
-  {
-    id: "selenium-complete-guide-to-benefits-uses",
-    title: "Selenium: Complete Guide to Benefits & Uses",
-    topic: "Selenium",
-    owner: "",
-    date: "2026-07-09",
-    status: "Scheduled",
-    description: "Complete guide article introducing selenium benefits, common uses, and key considerations.",
     files: [],
   },
   {
