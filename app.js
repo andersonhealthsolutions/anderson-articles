@@ -231,17 +231,21 @@ function renderArticleRows() {
 
   filtered.forEach((article) => {
     const row = document.createElement("button");
-    row.className = "table-row";
+    row.className = "article-card";
     row.type = "button";
-    row.setAttribute("role", "row");
     row.addEventListener("click", () => selectArticle(article.id));
 
     row.innerHTML = `
-      <span class="article-title" role="cell">${article.title}<small>${article.topic}</small></span>
-      <span role="cell">${dateFormatter.format(parseDate(article.date))}</span>
-      <span role="cell">${article.owner}</span>
-      <span class="badge" data-status="${article.status}" role="cell">${article.status}</span>
-      <span class="file-count" role="cell">${article.files.length} files</span>
+      <span class="article-card-header">
+        <span class="badge" data-status="${article.status}">${article.status}</span>
+        <span class="badge">${dateFormatter.format(parseDate(article.date))}</span>
+      </span>
+      <h3>${article.title}</h3>
+      <p>${article.topic}</p>
+      <span class="article-meta">
+        <span>${article.owner}</span>
+        <span>${article.files.length} files</span>
+      </span>
     `;
 
     els.articleRows.appendChild(row);

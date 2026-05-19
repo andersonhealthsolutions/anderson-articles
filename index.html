@@ -3,165 +3,147 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Post Calendar Dashboard</title>
+    <title>Anderson Articles Calendar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="Dashboard navigation">
-        <div class="brand-block">
-          <div class="brand-mark">BP</div>
-          <div>
-            <p class="eyebrow">Editorial Hub</p>
-            <h1>Blog Calendar</h1>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Anderson editorial calendar home">
+        <span class="brand-mark">A</span>
+        <span>
+          <strong>Anderson</strong>
+          <small>Article Calendar</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#calendar">Calendar</a>
+        <a href="#articles">Articles</a>
+        <a href="#files">Files</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Editorial planning</p>
+          <h1>Upcoming Anderson article launches, all in one beautiful place.</h1>
+          <p>
+            See what is publishing next, who owns it, and which files are ready for the team.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-link" href="#calendar">View Calendar</a>
+            <a class="secondary-link" href="#articles">See Article List</a>
           </div>
         </div>
 
-        <nav class="nav-list" aria-label="Primary">
-          <a class="nav-item is-active" href="#calendar">
-            <span class="nav-icon" aria-hidden="true">Cal</span>
-            Calendar
-          </a>
-          <a class="nav-item" href="#upcoming">
-            <span class="nav-icon" aria-hidden="true">Due</span>
-            Upcoming
-          </a>
-          <a class="nav-item" href="#files">
-            <span class="nav-icon" aria-hidden="true">File</span>
-            Files
-          </a>
-        </nav>
-
-        <section class="status-panel" aria-label="Publishing status">
-          <p class="panel-label">This Month</p>
-          <div class="status-grid">
-            <div>
-              <strong id="statScheduled">0</strong>
-              <span>Scheduled</span>
-            </div>
-            <div>
-              <strong id="statDraft">0</strong>
-              <span>Drafts</span>
-            </div>
-            <div>
-              <strong id="statNeedsFiles">0</strong>
-              <span>Need files</span>
-            </div>
+        <aside class="feature-card" aria-label="Next article">
+          <span class="card-kicker">Next article</span>
+          <h2 id="nextPostTitle">No upcoming article</h2>
+          <p id="nextPostTopic">Topic will appear here.</p>
+          <div class="feature-meta">
+            <span id="nextPostDate">Add dates to begin.</span>
+            <span id="nextPostOwner">Content Team</span>
           </div>
-        </section>
-      </aside>
+        </aside>
+      </section>
 
-      <main class="dashboard">
-        <header class="topbar">
+      <section class="metrics" aria-label="Calendar summary">
+        <article>
+          <span>Scheduled</span>
+          <strong id="statScheduled">0</strong>
+        </article>
+        <article>
+          <span>Drafts</span>
+          <strong id="statDraft">0</strong>
+        </article>
+        <article>
+          <span>Need Files</span>
+          <strong id="statNeedsFiles">0</strong>
+        </article>
+        <article>
+          <span>Files Ready</span>
+          <strong id="filesReady">0</strong>
+        </article>
+      </section>
+
+      <section class="toolbar" aria-label="Search and filter articles">
+        <label class="search-box" for="searchInput">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Search article title, topic, or owner" />
+        </label>
+        <select id="statusFilter" aria-label="Filter by status">
+          <option value="all">All statuses</option>
+          <option value="Scheduled">Scheduled</option>
+          <option value="Drafting">Drafting</option>
+          <option value="Needs Files">Needs Files</option>
+          <option value="Ready">Ready</option>
+        </select>
+      </section>
+
+      <section class="calendar-section" id="calendar" aria-labelledby="calendarTitle">
+        <div class="section-heading">
           <div>
-            <p class="eyebrow">Team dashboard</p>
-            <h2>Editorial launch board</h2>
-            <p class="topbar-copy">A live publishing calendar for blog deadlines, owners, and production files.</p>
+            <p class="eyebrow">Publishing calendar</p>
+            <h2 id="calendarTitle">Monthly schedule</h2>
           </div>
-          <div class="topbar-actions">
-            <label class="search-box" for="searchInput">
-              <span aria-hidden="true">Search</span>
-              <input id="searchInput" type="search" placeholder="Search title, owner, topic" />
-            </label>
-            <select id="statusFilter" aria-label="Filter by status">
-              <option value="all">All statuses</option>
-              <option value="Scheduled">Scheduled</option>
-              <option value="Drafting">Drafting</option>
-              <option value="Needs Files">Needs Files</option>
-              <option value="Ready">Ready</option>
-            </select>
+          <div class="month-controls" aria-label="Calendar controls">
+            <button class="icon-button" id="prevMonth" type="button" aria-label="Previous month">&lt;</button>
+            <strong id="monthLabel"></strong>
+            <button class="icon-button" id="nextMonth" type="button" aria-label="Next month">&gt;</button>
           </div>
-        </header>
+        </div>
 
-        <section class="summary-band" aria-label="Quick summary">
-          <article>
-            <span class="summary-label">Next post</span>
-            <strong id="nextPostTitle">No upcoming post</strong>
-            <small id="nextPostDate">Add blog dates to begin.</small>
-          </article>
-          <article>
-            <span class="summary-label">Primary owner</span>
-            <strong id="nextPostOwner">Unassigned</strong>
-            <small id="nextPostTopic">Topic will appear here.</small>
-          </article>
-          <article>
-            <span class="summary-label">Files ready</span>
-            <strong id="filesReady">0</strong>
-            <small id="filesNeeded">0 still needed</small>
-          </article>
-        </section>
+        <div class="calendar-weekdays" aria-hidden="true">
+          <span>Sun</span>
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+        </div>
+        <div class="calendar-grid" id="calendarGrid" aria-live="polite"></div>
+      </section>
 
-        <section class="content-grid">
-          <section class="calendar-section" id="calendar" aria-labelledby="calendarTitle">
-            <div class="section-header">
-              <div>
-                <p class="eyebrow">Calendar</p>
-                <h3 id="calendarTitle">Editorial schedule</h3>
-              </div>
-              <div class="month-controls" aria-label="Calendar controls">
-                <button class="icon-button" id="prevMonth" type="button" aria-label="Previous month">&lt;</button>
-                <strong id="monthLabel"></strong>
-                <button class="icon-button" id="nextMonth" type="button" aria-label="Next month">&gt;</button>
-              </div>
-            </div>
-            <div class="calendar-weekdays" aria-hidden="true">
-              <span>Sun</span>
-              <span>Mon</span>
-              <span>Tue</span>
-              <span>Wed</span>
-              <span>Thu</span>
-              <span>Fri</span>
-              <span>Sat</span>
-            </div>
-            <div class="calendar-grid" id="calendarGrid" aria-live="polite"></div>
-          </section>
-
-          <aside class="detail-panel" aria-labelledby="detailTitle">
-            <p class="eyebrow">Selected post</p>
-            <h3 id="detailTitle">Choose a calendar item</h3>
-            <p id="detailMeta" class="detail-meta">Post details and task files will appear here.</p>
-            <dl class="detail-list">
-              <div>
-                <dt>Status</dt>
-                <dd id="detailStatus">-</dd>
-              </div>
-              <div>
-                <dt>Owner</dt>
-                <dd id="detailOwner">-</dd>
-              </div>
-              <div>
-                <dt>Publish Date</dt>
-                <dd id="detailDate">-</dd>
-              </div>
-            </dl>
-            <div class="file-list" id="detailFiles"></div>
-          </aside>
-        </section>
-
-        <section class="list-section" id="upcoming" aria-labelledby="upcomingTitle">
-          <div class="section-header">
+      <section class="content-layout">
+        <section class="articles-section" id="articles" aria-labelledby="articlesTitle">
+          <div class="section-heading">
             <div>
-              <p class="eyebrow">Queue</p>
-              <h3 id="upcomingTitle">Upcoming articles</h3>
+              <p class="eyebrow">Upcoming work</p>
+              <h2 id="articlesTitle">Article queue</h2>
             </div>
             <span id="resultCount" class="result-count">0 posts</span>
           </div>
-          <div class="article-table" role="table" aria-label="Upcoming blog posts">
-            <div class="table-row table-head" role="row">
-              <span role="columnheader">Article</span>
-              <span role="columnheader">Date</span>
-              <span role="columnheader">Owner</span>
-              <span role="columnheader">Status</span>
-              <span role="columnheader">Files</span>
-            </div>
-            <div id="articleRows"></div>
-          </div>
+          <div class="article-grid" id="articleRows"></div>
         </section>
-      </main>
-    </div>
+
+        <aside class="selected-card" id="files" aria-labelledby="detailTitle">
+          <p class="eyebrow">Selected article</p>
+          <h2 id="detailTitle">Choose a calendar item</h2>
+          <p id="detailMeta">Article details and files will appear here.</p>
+          <dl class="detail-list">
+            <div>
+              <dt>Status</dt>
+              <dd id="detailStatus">-</dd>
+            </div>
+            <div>
+              <dt>Owner</dt>
+              <dd id="detailOwner">-</dd>
+            </div>
+            <div>
+              <dt>Publish Date</dt>
+              <dd id="detailDate">-</dd>
+            </div>
+          </dl>
+          <div class="file-list" id="detailFiles"></div>
+          <p class="file-note" id="filesNeeded">0 posts still need files</p>
+        </aside>
+      </section>
+    </main>
 
     <script src="config.js"></script>
     <script src="data/blogs.js"></script>
