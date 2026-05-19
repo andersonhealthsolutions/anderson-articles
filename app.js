@@ -283,11 +283,14 @@ function renderDetail() {
 }
 
 function renderStats() {
+  const featuredArticleId = window.dashboardConfig?.featuredArticleId;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const nextPost = articles
-    .filter((article) => parseDate(article.date) >= today)
-    .sort((a, b) => parseDate(a.date) - parseDate(b.date))[0];
+  const nextPost =
+    articles.find((article) => article.id === featuredArticleId) ||
+    articles
+      .filter((article) => parseDate(article.date) >= today)
+      .sort((a, b) => parseDate(a.date) - parseDate(b.date))[0];
 
   if (nextPost) {
     els.nextPostTitle.textContent = nextPost.title;
