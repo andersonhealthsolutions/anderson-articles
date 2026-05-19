@@ -24,7 +24,6 @@ const els = {
   detailFiles: document.querySelector("#detailFiles"),
   nextPostTitle: document.querySelector("#nextPostTitle"),
   nextPostDate: document.querySelector("#nextPostDate"),
-  nextPostOwner: document.querySelector("#nextPostOwner"),
   nextPostTopic: document.querySelector("#nextPostTopic"),
   filesNeeded: document.querySelector("#filesNeeded"),
 };
@@ -297,7 +296,6 @@ function renderStats() {
   if (nextPost) {
     els.nextPostTitle.textContent = nextPost.title;
     els.nextPostDate.textContent = dateFormatter.format(parseDate(nextPost.date));
-    els.nextPostOwner.textContent = nextPost.owner;
     els.nextPostTopic.textContent = nextPost.topic;
   }
 
