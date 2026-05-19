@@ -19,7 +19,6 @@ const els = {
   detailTitle: document.querySelector("#detailTitle"),
   detailMeta: document.querySelector("#detailMeta"),
   detailStatus: document.querySelector("#detailStatus"),
-  detailOwner: document.querySelector("#detailOwner"),
   detailDate: document.querySelector("#detailDate"),
   detailFiles: document.querySelector("#detailFiles"),
   nextPostTitle: document.querySelector("#nextPostTitle"),
@@ -119,7 +118,7 @@ function postsFromCsv(text) {
         id: record.id || slugify(`${date}-${title}`),
         title,
         topic: record.topic || "Blog",
-        owner: record.owner || "Content Team",
+        owner: record.owner || "",
         date,
         status: record.status || "Scheduled",
         description: record.description || `Scheduled article for ${title}.`,
@@ -238,7 +237,6 @@ function renderArticleRows() {
       <h3>${article.title}</h3>
       <p>${article.topic}</p>
       <span class="article-meta">
-        <span>${article.owner}</span>
         <span>${article.files.length} files</span>
       </span>
     `;
@@ -254,8 +252,7 @@ function renderDetail() {
     els.detailTitle.textContent = "No article selected";
     els.detailMeta.textContent = "Add scheduled posts to see task details.";
     els.detailStatus.textContent = "-";
-    els.detailOwner.textContent = "-";
-    els.detailDate.textContent = "-";
+  els.detailDate.textContent = "-";
     els.detailFiles.innerHTML = "";
     return;
   }
@@ -264,7 +261,6 @@ function renderDetail() {
   els.detailTitle.textContent = selected.title;
   els.detailMeta.textContent = selected.description;
   els.detailStatus.textContent = selected.status;
-  els.detailOwner.textContent = selected.owner;
   els.detailDate.textContent = dateFormatter.format(parseDate(selected.date));
   els.detailFiles.innerHTML = "";
 
