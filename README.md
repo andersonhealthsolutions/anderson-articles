@@ -1,4 +1,4 @@
-# Blog Post Calendar Dashboard
+# Articles
 
 A static GitHub Pages dashboard for tracking scheduled blog posts, owners, statuses, and downloadable task files.
 
