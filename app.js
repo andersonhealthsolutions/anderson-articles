@@ -22,14 +22,10 @@ const els = {
   detailOwner: document.querySelector("#detailOwner"),
   detailDate: document.querySelector("#detailDate"),
   detailFiles: document.querySelector("#detailFiles"),
-  statScheduled: document.querySelector("#statScheduled"),
-  statDraft: document.querySelector("#statDraft"),
-  statNeedsFiles: document.querySelector("#statNeedsFiles"),
   nextPostTitle: document.querySelector("#nextPostTitle"),
   nextPostDate: document.querySelector("#nextPostDate"),
   nextPostOwner: document.querySelector("#nextPostOwner"),
   nextPostTopic: document.querySelector("#nextPostTopic"),
-  filesReady: document.querySelector("#filesReady"),
   filesNeeded: document.querySelector("#filesNeeded"),
 };
 
@@ -292,17 +288,6 @@ function renderDetail() {
 }
 
 function renderStats() {
-  const month = state.displayDate.getMonth();
-  const year = state.displayDate.getFullYear();
-  const monthlyArticles = articles.filter((article) => {
-    const date = parseDate(article.date);
-    return date.getMonth() === month && date.getFullYear() === year;
-  });
-
-  els.statScheduled.textContent = monthlyArticles.filter((article) => article.status === "Scheduled").length;
-  els.statDraft.textContent = monthlyArticles.filter((article) => article.status === "Drafting").length;
-  els.statNeedsFiles.textContent = monthlyArticles.filter((article) => article.status === "Needs Files").length;
-
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const nextPost = articles
@@ -316,8 +301,6 @@ function renderStats() {
     els.nextPostTopic.textContent = nextPost.topic;
   }
 
-  const allFiles = articles.flatMap((article) => article.files);
-  els.filesReady.textContent = allFiles.length;
   els.filesNeeded.textContent = `${articles.filter((article) => !article.files.length).length} posts still need files`;
 }
 
