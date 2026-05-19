@@ -234,24 +234,10 @@ h2 {
 }
 
 .feature-card {
-  overflow: hidden;
-  padding: 0;
+  padding: 28px;
   display: grid;
-  align-content: start;
-  gap: 16px;
-}
-
-.feature-card > :not(.feature-product) {
-  margin-left: 28px;
-  margin-right: 28px;
-}
-
-.feature-product {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: contain;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
+  align-content: center;
+  gap: 18px;
 }
 
 .feature-card h2 {
@@ -269,7 +255,6 @@ h2 {
   display: grid;
   gap: 8px;
   margin-top: 8px;
-  margin-bottom: 28px;
 }
 
 .feature-meta span {
