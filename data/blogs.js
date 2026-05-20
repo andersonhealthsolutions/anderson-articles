@@ -13,6 +13,11 @@ window.blogPosts = [
         type: "TXT",
         url: "downloads/content-brief-template.txt",
       },
+      {
+        name: "Jacobs Copy",
+        type: "DOCX",
+        url: "downloads/jacobs-copy.docx",
+      },
     ],
   },
   {
