@@ -14,7 +14,7 @@ window.blogPosts = [
         url: "downloads/jacobs-copy.docx",
       },
       {
-        name: "Tom Copy",
+        name: "Toms Copy",
         type: "DOCX",
         url: "downloads/tom-copy.docx",
       },
