@@ -9,11 +9,6 @@ window.blogPosts = [
     description: "Complete guide article introducing selenium benefits, common uses, and key considerations.",
     files: [
       {
-        name: "Content Brief Template",
-        type: "TXT",
-        url: "downloads/content-brief-template.txt",
-      },
-      {
         name: "Jacobs Copy",
         type: "DOCX",
         url: "downloads/jacobs-copy.docx",
