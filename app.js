@@ -12,6 +12,7 @@ const els = {
   monthLabel: document.querySelector("#monthLabel"),
   prevMonth: document.querySelector("#prevMonth"),
   nextMonth: document.querySelector("#nextMonth"),
+  currentMonth: document.querySelector("#currentMonth"),
   searchInput: document.querySelector("#searchInput"),
   statusFilter: document.querySelector("#statusFilter"),
   articleRows: document.querySelector("#articleRows"),
@@ -24,6 +25,7 @@ const els = {
   nextPostTitle: document.querySelector("#nextPostTitle"),
   nextPostDate: document.querySelector("#nextPostDate"),
   nextPostTopic: document.querySelector("#nextPostTopic"),
+  featureCard: document.querySelector(".feature-card"),
 };
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -228,15 +230,24 @@ function renderArticleRows() {
     row.type = "button";
     row.addEventListener("click", () => selectArticle(article.id));
 
+    const fileLabel =
+      article.files.length === 1
+        ? "1 file"
+        : `${article.files.length} files`;
+    const statusBadge =
+      article.status === "Scheduled"
+        ? ""
+        : `<span class="badge" data-status="${article.status}">${article.status}</span>`;
+
     row.innerHTML = `
       <span class="article-card-header">
-        <span class="badge" data-status="${article.status}">${article.status}</span>
+        ${statusBadge}
         <span class="badge">${dateFormatter.format(parseDate(article.date))}</span>
       </span>
       <h3>${article.title}</h3>
       <p>${article.topic}</p>
       <span class="article-meta">
-        <span>${article.files.length} files</span>
+        <span>${fileLabel}</span>
       </span>
     `;
 
@@ -295,6 +306,21 @@ function renderStats() {
     els.nextPostTitle.textContent = nextPost.title;
     els.nextPostDate.textContent = dateFormatter.format(parseDate(nextPost.date));
     els.nextPostTopic.textContent = nextPost.topic;
+    els.featureCard.querySelectorAll(".feature-downloads").forEach((node) => node.remove());
+
+    if (nextPost.files.length) {
+      const downloads = document.createElement("div");
+      downloads.className = "feature-downloads";
+      nextPost.files.forEach((file) => {
+        const link = document.createElement("a");
+        link.className = "feature-download";
+        link.href = file.url;
+        link.download = "";
+        link.textContent = `Download ${file.name}`;
+        downloads.appendChild(link);
+      });
+      els.featureCard.appendChild(downloads);
+    }
   }
 
 }
@@ -322,6 +348,12 @@ els.prevMonth.addEventListener("click", () => {
 
 els.nextMonth.addEventListener("click", () => {
   state.displayDate = new Date(state.displayDate.getFullYear(), state.displayDate.getMonth() + 1, 1);
+  render();
+});
+
+els.currentMonth.addEventListener("click", () => {
+  const featuredArticle = articles.find((article) => article.id === window.dashboardConfig?.featuredArticleId);
+  state.displayDate = featuredArticle ? parseDate(featuredArticle.date) : new Date();
   render();
 });
 

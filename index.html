@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
   <body>
     <header class="site-header">
@@ -49,8 +49,9 @@
       <section class="toolbar" aria-label="Search and filter articles">
         <label class="search-box" for="searchInput">
           <span>Search</span>
-          <input id="searchInput" type="search" placeholder="Search article title, topic, or owner" />
+          <input id="searchInput" type="search" placeholder="Search article title or topic" />
         </label>
+        <button class="toolbar-button" id="currentMonth" type="button">This Month</button>
         <select id="statusFilter" aria-label="Filter by status">
           <option value="all">All statuses</option>
           <option value="Scheduled">Scheduled</option>
@@ -114,10 +115,12 @@
           <div class="file-list" id="detailFiles"></div>
         </aside>
       </section>
+
+      <p class="last-updated">Last updated May 20, 2026</p>
     </main>
 
     <script src="config.js?v=2"></script>
     <script src="data/blogs.js"></script>
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
   </body>
 </html>
