@@ -570,12 +570,6 @@ dd {
   font-size: 0.78rem;
 }
 
-.file-note {
-  margin: 18px 0 0;
-  font-size: 0.86rem;
-  font-weight: 800;
-}
-
 .empty-state {
   grid-column: 1 / -1;
   padding: 30px;

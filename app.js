@@ -24,7 +24,6 @@ const els = {
   nextPostTitle: document.querySelector("#nextPostTitle"),
   nextPostDate: document.querySelector("#nextPostDate"),
   nextPostTopic: document.querySelector("#nextPostTopic"),
-  filesNeeded: document.querySelector("#filesNeeded"),
 };
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -298,7 +297,6 @@ function renderStats() {
     els.nextPostTopic.textContent = nextPost.topic;
   }
 
-  els.filesNeeded.textContent = `${articles.filter((article) => !article.files.length).length} posts still need files`;
 }
 
 function selectArticle(id) {
