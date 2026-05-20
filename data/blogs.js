@@ -13,6 +13,11 @@ window.blogPosts = [
         type: "DOCX",
         url: "downloads/jacobs-copy.docx",
       },
+      {
+        name: "Tom Copy",
+        type: "DOCX",
+        url: "downloads/tom-copy.docx",
+      },
     ],
   },
   {
