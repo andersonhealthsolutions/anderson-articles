@@ -166,6 +166,17 @@ function getFilteredArticles() {
     .sort((a, b) => parseDate(a.date) - parseDate(b.date));
 }
 
+function getDefaultArticle(filtered = getFilteredArticles()) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  return (
+    filtered.find((article) => parseDate(article.date) >= today) ||
+    filtered[0] ||
+    null
+  );
+}
+
 function renderCalendar() {
   const year = state.displayDate.getFullYear();
   const month = state.displayDate.getMonth();
@@ -256,7 +267,8 @@ function renderArticleRows() {
 }
 
 function renderDetail() {
-  const selected = articles.find((article) => article.id === state.selectedId) || getFilteredArticles()[0];
+  const filtered = getFilteredArticles();
+  const selected = articles.find((article) => article.id === state.selectedId) || getDefaultArticle(filtered);
 
   if (!selected) {
     els.detailTitle.textContent = "No article selected";
