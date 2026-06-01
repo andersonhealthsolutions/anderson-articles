@@ -28,7 +28,13 @@ window.blogPosts = [
     date: "2026-06-11",
     status: "Scheduled",
     description: "Educational article explaining why reverse osmosis water removes minerals and what that means for readers.",
-    files: [],
+    files: [
+      {
+        name: "Jacobs Copy",
+        type: "DOCX",
+        url: "downloads/ro-water-jacob-copy.docx",
+      },
+    ],
   },
   {
     id: "how-absorption-rates-vary-by-mineral-type",
