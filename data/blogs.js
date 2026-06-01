@@ -34,6 +34,11 @@ window.blogPosts = [
         type: "DOCX",
         url: "downloads/ro-water-jacob-copy.docx",
       },
+      {
+        name: "Toms Copy",
+        type: "DOCX",
+        url: "downloads/ro-water-tom-copy.docx",
+      },
     ],
   },
   {
