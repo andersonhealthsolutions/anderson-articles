@@ -55,6 +55,11 @@ window.blogPosts = [
         type: "DOCX",
         url: "downloads/liquid-capsule-powder-jacob-copy.docx",
       },
+      {
+        name: "Toms Copy",
+        type: "DOCX",
+        url: "downloads/liquid-capsule-powder-tom-copy.docx",
+      },
     ],
   },
   {
