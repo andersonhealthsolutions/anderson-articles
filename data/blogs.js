@@ -49,7 +49,13 @@ window.blogPosts = [
     date: "2026-06-25",
     status: "Scheduled",
     description: "Article covering how different mineral types can affect absorption and bioavailability.",
-    files: [],
+    files: [
+      {
+        name: "Jacobs Copy",
+        type: "DOCX",
+        url: "downloads/liquid-capsule-powder-jacob-copy.docx",
+      },
+    ],
   },
   {
     id: "health-effects-of-drinking-demineralized-water",
