@@ -43,7 +43,7 @@ window.blogPosts = [
   },
   {
     id: "how-absorption-rates-vary-by-mineral-type",
-    title: "How Absorption Rates Vary by Mineral Type",
+    title: "Liquid vs Capsule vs Powder Minerals",
     topic: "Mineral Absorption",
     owner: "",
     date: "2026-06-25",
