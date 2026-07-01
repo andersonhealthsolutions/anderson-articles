@@ -84,6 +84,16 @@ window.blogPosts = [
     ],
   },
   {
+    id: "are-all-trace-mineral-drops-the-same-what-anderson-gets-right",
+    title: "Are All Trace Mineral Drops the Same? What Anderson Gets Right",
+    topic: "Trace Minerals",
+    owner: "",
+    date: "2026-07-09",
+    status: "Scheduled",
+    description: "Trace minerals article focused on what sets Anderson apart from other mineral drops.",
+    files: [],
+  },
+  {
     id: "health-effects-of-drinking-demineralized-water",
     title: "Health Effects of Drinking Demineralized Water",
     topic: "Demineralized Water",
