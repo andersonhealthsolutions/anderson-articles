@@ -63,6 +63,27 @@ window.blogPosts = [
     ],
   },
   {
+    id: "anderson-trace-mineral-complex-vs-competitors",
+    title: "Anderson Trace Mineral Complex vs Competitors",
+    topic: "Trace Minerals",
+    owner: "",
+    date: "2026-07-09",
+    status: "Scheduled",
+    description: "Comparison article focused on Anderson Trace Mineral Complex and competitor positioning.",
+    files: [
+      {
+        name: "Jacobs Copy",
+        type: "DOCX",
+        url: "downloads/anderson-trace-minerals-jacob-copy.docx",
+      },
+      {
+        name: "Toms Copy",
+        type: "DOCX",
+        url: "downloads/anderson-trace-minerals-tom-copy.docx",
+      },
+    ],
+  },
+  {
     id: "health-effects-of-drinking-demineralized-water",
     title: "Health Effects of Drinking Demineralized Water",
     topic: "Demineralized Water",
