@@ -238,7 +238,9 @@ function renderArticleRows() {
   filtered.forEach((article) => {
     const row = document.createElement("button");
     row.className = "article-card";
+    if (article.id === state.selectedId) row.classList.add("is-selected");
     row.type = "button";
+    row.setAttribute("aria-pressed", String(article.id === state.selectedId));
     row.addEventListener("click", () => selectArticle(article.id));
 
     const fileLabel =
@@ -285,6 +287,11 @@ function renderDetail() {
   els.detailStatus.textContent = selected.status;
   els.detailDate.textContent = dateFormatter.format(parseDate(selected.date));
   els.detailFiles.innerHTML = "";
+
+  const filesTitle = document.createElement("h3");
+  filesTitle.className = "file-list-title";
+  filesTitle.textContent = `Available files (${selected.files.length})`;
+  els.detailFiles.appendChild(filesTitle);
 
   if (!selected.files.length) {
     const empty = document.createElement("p");
@@ -344,6 +351,10 @@ function selectArticle(id) {
   state.selectedId = id;
   state.displayDate = parseDate(article.date);
   render();
+
+  if (window.matchMedia("(max-width: 980px)").matches) {
+    els.detailFiles.closest(".selected-card").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 function render() {
