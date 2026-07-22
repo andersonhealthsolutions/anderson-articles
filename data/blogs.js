@@ -95,13 +95,24 @@ window.blogPosts = [
   },
   {
     id: "health-effects-of-drinking-demineralized-water",
-    title: "Health Effects of Drinking Demineralized Water",
+    title: "Demineralized Water Health Effects: Is It Safe to Drink?",
     topic: "Demineralized Water",
     owner: "",
     date: "2026-07-30",
     status: "Scheduled",
     description: "Educational article covering the potential health effects of drinking water with minerals removed.",
-    files: [],
+    files: [
+      {
+        name: "Jacobs Copy",
+        type: "DOCX",
+        url: "downloads/demineralized-water-health-effects-jacob-copy.docx",
+      },
+      {
+        name: "Toms Copy",
+        type: "DOCX",
+        url: "downloads/demineralized-water-health-effects-tom-copy.docx",
+      },
+    ],
   },
   {
     id: "most-bioavailable-forms-of-magnesium-zinc-selenium",
